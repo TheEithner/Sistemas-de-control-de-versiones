@@ -6,6 +6,9 @@ class Nodo:
         self.dato = None
         self.siguiente = None
 
+    def __str__(self):
+        return str(self.dato)
+
 class lista_enlazada:
     def __init__(self):
         self.cabeza = None
@@ -86,3 +89,23 @@ class lista_enlazada:
             elementos.append(str(actual.dato))
             actual = actual.siguiente
         print(" -> ".join(elementos) + " -> NULL")
+
+    def contar_nodos(self):
+        contador = 0
+        actual = self.cabeza
+        while actual:
+            contador += 1
+            actual = actual.siguiente
+        return contador
+    
+    def mostrar_ordenada(self):
+        datos = []
+        actual = self.cabeza
+        while actual:
+            datos.append(actual.dato)
+            actual = actual.siguiente
+        datos.sort()
+
+        elementos_ordenados = [str(d) for d in datos]
+        print(" -> ".join(elementos_ordenados) + " -> NULL")
+
