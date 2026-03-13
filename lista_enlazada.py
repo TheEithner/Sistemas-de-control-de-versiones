@@ -49,4 +49,40 @@ class lista_enlazada:
         nuevo_nodo.siguiente = actual.siguiente
         actual.siguiente = nuevo_nodo
 
+    def eliminar_valor(self, valor):
+        if self.vacia():
+            return
         
+        if self.cabeza.dato == valor:
+            self.cabeza = self.cabeza.siguiente
+            return
+        
+        actual = self.cabeza
+        while actual.siguiente and actual.siguiente.dato != valor:
+            actual = actual.siguiente
+
+        if actual.siguiente:
+            actual.siguiente = actual.siguiente.siguiente
+        else:
+            print(f"Valor {valor} no encontrado en la lista")
+
+    def buscar(self, valor):
+        actual = self.cabeza 
+        posicion = 0
+        while actual:
+            if actual.dato == valor:
+                print(f"Valor {valor} encontrado en la poicion {posicion}")
+                return
+            
+            actual = actual.siguiente
+            posicion += 1
+        print(f"Valor {valor} no encontrado en la lista")
+        return
+    
+    def mostrar(self):
+        actual = self.cabeza
+        elementos = []
+        while actual:
+            elementos.append(str(actual.dato))
+            actual = actual.siguiente
+        print(" -> ".join(elementos) + " -> NULL")
