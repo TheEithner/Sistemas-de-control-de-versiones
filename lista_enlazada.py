@@ -2,8 +2,8 @@
 # Sistemas de control de versiones - 37
 
 class Nodo:
-    def __init__(self):
-        self.dato = None
+    def __init__(self, dato):
+        self.dato = dato
         self.siguiente = None
 
     def __str__(self):
@@ -108,4 +108,33 @@ class lista_enlazada:
 
         elementos_ordenados = [str(d) for d in datos]
         print(" -> ".join(elementos_ordenados) + " -> NULL")
+
+if __name__ == "__main__":
+    lista = lista_enlazada()
+
+    lista.agregar_inicio(10)
+    lista.agregar_final(20)
+    lista.agregar_inicio(5)
+    lista.agregar_final(25)
+    lista.agregar_final(30)
+    lista.agregar_final(28)
+    lista.agregar_posicion(40, 0)
+    lista.agregar_posicion(15, 1)
+
+    print(f"¿La lista está vacía? {lista.vacia()}")
+    print(F"Total de nodos en la lista: {lista.contar_nodos()}")
+    lista.mostrar()
+
+    lista.buscar(15)
+    lista.buscar(100)
+
+    print("Lista ordenada: ")
+    lista.mostrar_ordenada()
+
+    lista.eliminar_valor(20)
+    print(f"Total de nodos en la lista: {lista.contar_nodos()}")
+    lista.mostrar()
+
+    print("Lista ordenada: ")
+    lista.mostrar_ordenada()
 
