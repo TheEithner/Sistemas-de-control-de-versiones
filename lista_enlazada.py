@@ -74,7 +74,7 @@ class lista_enlazada:
         posicion = 0
         while actual:
             if actual.dato == valor:
-                print(f"Valor {valor} encontrado en la poicion {posicion}")
+                print(f"Valor {valor} encontrado en la posicion {posicion}")
                 return
             
             actual = actual.siguiente
